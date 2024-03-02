@@ -33,7 +33,7 @@ class AvengerResource(@Autowired private val repository: AvengerRepository) {
                         }
             }
 
-    @GetMapping("{id}")
+    @GetMapping("{id}/detail")
     fun getAvengerDetails(@PathVariable("id") id: Long) =
             repository.getDetail(id)?.let {
                 ResponseEntity.ok().body(AvengerResponse.from(it))
@@ -44,7 +44,7 @@ class AvengerResource(@Autowired private val repository: AvengerRepository) {
             request.toAvenger().run {
                 repository.create(this)
             }.let {
-                ResponseEntity.created(URI("$API_PATH/${it.id}")).body(AvengerResponse.from(it))
+                ResponseEntity.created(URI("$API_PATH/detail/${it.id}")).body(AvengerResponse.from(it))
             }
 
     @PutMapping("{id}")
