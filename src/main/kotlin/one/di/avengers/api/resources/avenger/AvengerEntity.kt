@@ -4,6 +4,7 @@ import jakarta.persistence.*
 import one.di.avengers.api.domain.avenger.Avenger
 
 @Entity
+@Table(name = "avenger")
 data class AvengerEntity(
 
         @Id
@@ -16,9 +17,7 @@ data class AvengerEntity(
         @Column(nullable = false)
         val person: String,
 
-
         val description: String? = "",
-
 
         val history: String? = ""
 ) {
