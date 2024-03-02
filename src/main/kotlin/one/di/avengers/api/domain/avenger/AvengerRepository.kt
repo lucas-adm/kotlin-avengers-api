@@ -1,7 +1,7 @@
 package one.di.avengers.api.domain.avenger
 
 interface AvengerRepository {
-    fun getDetail(id: Long): Avenger
+    fun getDetail(id: Long): Avenger?
 
     fun getAvengers(): List<Avenger>
 
